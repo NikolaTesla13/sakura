@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.23)
 include(FetchContent)
 Set(FETCHCONTENT_QUIET FALSE)
 
-add_library(lib INTERFACE webgpu/webgpu.cpp)
+add_library(lib INTERFACE webgpu/webgpu.cpp glfw3webgpu/glfw3webgpu.h)
 
 # glfw
 add_subdirectory(glfw)
@@ -18,5 +18,9 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(webgpu-backend-dawn)
 
+# glfw3webgpu
+add_subdirectory(glfw3webgpu)
+include_directories(glfw3webgpu)
+
 # Link the master library with the other libraries
-target_link_libraries(lib INTERFACE glfw webgpu)
+target_link_libraries(lib INTERFACE glfw webgpu glfw3webgpu)
