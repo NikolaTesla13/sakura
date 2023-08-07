@@ -1,7 +1,7 @@
 #include "core/application.h"
 #include "sandbox/sandbox.h"
 
-using namespace sakura;
+using namespace Sakura;
 
 int main() {
    auto app = CreateRef<Application>(ApplicationDescriptor {

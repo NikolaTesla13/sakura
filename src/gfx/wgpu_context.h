@@ -14,7 +14,7 @@
             std::exit(-1); \
         }
 
-namespace sakura {
+namespace Sakura {
     class WGPUContext {
     public:
         explicit WGPUContext(const Window& window);

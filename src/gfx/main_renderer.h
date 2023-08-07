@@ -9,7 +9,7 @@
 
 #include "gfx/wgpu_context.h"
 
-namespace sakura {
+namespace Sakura {
     class MainRenderer {
     public:
         MainRenderer(MainRenderer const&) = delete;

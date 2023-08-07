@@ -13,7 +13,7 @@
 
 #include "gfx/main_renderer.h"
 
-namespace sakura {
+namespace Sakura {
     struct ApplicationDescriptor {
         int32_t Width, Height;
         std::string Name;

@@ -4,7 +4,7 @@
 
 #include "wgpu_context.h"
 
-namespace sakura {
+namespace Sakura {
     WGPUContext::WGPUContext(const Window& window) {
         auto instanceDesc = wgpu::InstanceDescriptor {};
         instanceDesc.nextInChain = nullptr;

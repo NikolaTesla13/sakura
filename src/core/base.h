@@ -6,7 +6,7 @@
 
 #include <memory>
 
-namespace sakura {
+namespace Sakura {
     template<typename T>
     using Ref = std::shared_ptr<T>;
 

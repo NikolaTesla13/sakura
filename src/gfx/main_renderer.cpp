@@ -4,7 +4,7 @@
 
 #include "main_renderer.h"
 
-namespace sakura {
+namespace Sakura {
     MainRenderer::MainRenderer(const Ref<Window>& window) {
         m_Context = new WGPUContext(*window.get());
 
@@ -29,27 +29,27 @@ namespace sakura {
         commandEncoderDesc.label = "Command Encoder";
         wgpu::CommandEncoder encoder = m_Context->GetDevice()->createCommandEncoder(commandEncoderDesc);
 
-        wgpu::RenderPassDescriptor renderPassDesc{};
-
         WGPURenderPassColorAttachment renderPassColorAttachment = {};
         renderPassColorAttachment.view = nextTexture;
         renderPassColorAttachment.resolveTarget = nullptr;
         renderPassColorAttachment.loadOp = wgpu::LoadOp::Clear;
         renderPassColorAttachment.storeOp = wgpu::StoreOp::Store;
         renderPassColorAttachment.clearValue = wgpu::Color{ 0.9, 0.1, 0.2, 1.0 };
+
+        wgpu::RenderPassDescriptor renderPassDesc{};
         renderPassDesc.colorAttachmentCount = 1;
         renderPassDesc.colorAttachments = &renderPassColorAttachment;
-
         renderPassDesc.depthStencilAttachment = nullptr;
         renderPassDesc.timestampWriteCount = 0;
         renderPassDesc.timestampWrites = nullptr;
+
         wgpu::RenderPassEncoder renderPass = encoder.beginRenderPass(renderPassDesc);
         renderPass.end();
 
         nextTexture.release();
 
         wgpu::CommandBufferDescriptor cmdBufferDescriptor{};
-        cmdBufferDescriptor.label = "Command buffer";
+        cmdBufferDescriptor.label = "Command Buffer";
         wgpu::CommandBuffer command = encoder.finish(cmdBufferDescriptor);
         m_Context->GetQueue().submit(command);
 

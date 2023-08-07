@@ -4,7 +4,7 @@
 
 #pragma once
 
-namespace sakura {
+namespace Sakura {
     class Layer {
     public:
         virtual ~Layer() = default;

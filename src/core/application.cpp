@@ -4,8 +4,8 @@
 
 #include "application.h"
 
-namespace sakura {
-    Application::Application(const sakura::ApplicationDescriptor &desc) {
+namespace Sakura {
+    Application::Application(const Sakura::ApplicationDescriptor &desc) {
         m_Window = CreateRef<Window>(WindowDescriptor {
             .Name = desc.Name,
             .Width = desc.Width,

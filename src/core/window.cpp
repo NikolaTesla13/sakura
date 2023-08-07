@@ -4,7 +4,7 @@
 
 #include "window.h"
 
-namespace sakura {
+namespace Sakura {
     Window::Window(const WindowDescriptor& props) {
         if (!glfwInit())
             std::exit(-1);

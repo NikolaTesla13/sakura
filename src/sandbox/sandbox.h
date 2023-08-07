@@ -6,8 +6,9 @@
 
 #include "core/layer.h"
 #include "gfx/wgpu_context.h"
+#include "gfx/main_renderer.h"
 
-class Sandbox : public sakura::Layer {
+class Sandbox : public Sakura::Layer {
 public:
     Sandbox();
     ~Sandbox() override;
@@ -15,5 +16,8 @@ public:
     void OnInit() override;
     void OnUpdate() override;
     void OnDestroy() override;
+
+private:
+    Sakura::Ref<Sakura::MainRenderer> m_MainRenderer;
 };
 

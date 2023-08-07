@@ -11,7 +11,7 @@
 
 #include <webgpu/webgpu.hpp>
 
-namespace sakura {
+namespace Sakura {
     struct WindowDescriptor {
         std::string Name;
         int32_t Width, Height;
