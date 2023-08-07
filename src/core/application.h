@@ -8,9 +8,18 @@
 #include <memory>
 #include <vector>
 
+#include "core/window.h"
 #include "core/layer.h"
 
 namespace sakura {
+    template<typename T>
+    using Ref = std::shared_ptr<T>;
+
+    template<typename T, typename ... Args>
+    constexpr Ref<T> CreateRef(Args&& ... args) {
+        return std::make_shared<T>(std::forward<Args>(args)...);
+    }
+
     struct ApplicationDescriptor {
         int32_t Width, Height;
         std::string Name;
@@ -25,14 +34,7 @@ namespace sakura {
         int32_t Run();
 
     private:
+        Ref<Window> m_Window;
         std::vector<Layer*> m_Layers;
     };
-
-    template<typename T>
-    using Ref = std::shared_ptr<T>;
-    template<typename T, typename ... Args>
-    constexpr Ref<T> CreateRef(Args&& ... args)
-    {
-        return std::make_shared<T>(std::forward<Args>(args)...);
-    }
 }
