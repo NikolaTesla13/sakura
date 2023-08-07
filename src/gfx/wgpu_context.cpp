@@ -12,10 +12,10 @@ namespace sakura {
         m_Instance = CreateRef<wgpu::Instance>(createInstance(instanceDesc));
         WGPU_CHECK(m_Instance)
 
-        wgpu::Surface surface = window.GetWGPUSurface(*m_Instance.get());
+        m_Surface = CreateRef<wgpu::Surface>(window.GetWGPUSurface(*m_Instance.get()));
         auto adapterOpts = wgpu::RequestAdapterOptions {};
 
-        adapterOpts.compatibleSurface = surface;
+        adapterOpts.compatibleSurface = *m_Surface.get();
         m_Adapter = CreateRef<wgpu::Adapter>(m_Instance->requestAdapter(adapterOpts));
 
         auto deviceDesc = wgpu::DeviceDescriptor {};

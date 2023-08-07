@@ -11,7 +11,7 @@
 #include "core/layer.h"
 #include "core/base.h"
 
-#include "gfx/wgpu_context.h"
+#include "gfx/main_renderer.h"
 
 namespace sakura {
     struct ApplicationDescriptor {
@@ -29,7 +29,7 @@ namespace sakura {
 
     private:
         Ref<Window> m_Window;
-        WGPUContext* m_Context;
+        Ref<MainRenderer> m_Renderer;
 
         std::vector<Layer*> m_Layers;
     };

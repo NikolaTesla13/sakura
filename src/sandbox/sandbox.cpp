@@ -3,7 +3,7 @@
 //
 
 #include "sandbox.h"
-
+#include "gfx/main_renderer.h"
 #include <cstdio>
 
 Sandbox::Sandbox() = default;
@@ -15,6 +15,7 @@ void Sandbox::OnInit() {
 }
 
 void Sandbox::OnUpdate() {
+    sakura::MainRenderer::GetInstance(nullptr)->Draw();
 }
 
 void Sandbox::OnDestroy() {

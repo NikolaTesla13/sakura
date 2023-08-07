@@ -20,10 +20,15 @@ namespace sakura {
         explicit WGPUContext(const Window& window);
         ~WGPUContext();
 
+        [[nodiscard]] Ref<wgpu::Device> GetDevice() const { return m_Device; }
+        [[nodiscard]] Ref<wgpu::Surface> GetSurface() const { return m_Surface; }
+        [[nodiscard]] wgpu::Queue GetQueue() const { return m_Device->getQueue(); }
+
     private:
         void SetDeviceCallbacks();
 
         Ref<wgpu::Instance> m_Instance;
+        Ref<wgpu::Surface> m_Surface;
         Ref<wgpu::Adapter> m_Adapter;
         Ref<wgpu::Device> m_Device;
     };
