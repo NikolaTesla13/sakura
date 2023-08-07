@@ -5,6 +5,7 @@
 #pragma once
 
 #include "core/layer.h"
+#include "gfx/wgpu_context.h"
 
 class Sandbox : public sakura::Layer {
 public:

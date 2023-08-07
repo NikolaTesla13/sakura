@@ -5,21 +5,15 @@
 #pragma once
 
 #include <string>
-#include <memory>
 #include <vector>
 
 #include "core/window.h"
 #include "core/layer.h"
+#include "core/base.h"
+
+#include "gfx/wgpu_context.h"
 
 namespace sakura {
-    template<typename T>
-    using Ref = std::shared_ptr<T>;
-
-    template<typename T, typename ... Args>
-    constexpr Ref<T> CreateRef(Args&& ... args) {
-        return std::make_shared<T>(std::forward<Args>(args)...);
-    }
-
     struct ApplicationDescriptor {
         int32_t Width, Height;
         std::string Name;
@@ -35,6 +29,8 @@ namespace sakura {
 
     private:
         Ref<Window> m_Window;
+        WGPUContext* m_Context;
+
         std::vector<Layer*> m_Layers;
     };
 }

@@ -15,7 +15,6 @@ void Sandbox::OnInit() {
 }
 
 void Sandbox::OnUpdate() {
-    printf("update\n");
 }
 
 void Sandbox::OnDestroy() {

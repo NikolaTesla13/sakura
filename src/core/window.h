@@ -9,6 +9,8 @@
 #include <glfw3webgpu.h>
 #include <GLFW/glfw3.h>
 
+#include <webgpu/webgpu.hpp>
+
 namespace sakura {
     struct WindowDescriptor {
         std::string Name;
@@ -20,8 +22,10 @@ namespace sakura {
         explicit Window(const WindowDescriptor& props);
         ~Window();
 
-        void PollEvents();
-        bool ShouldClose();
+        void PollEvents() const;
+        bool ShouldClose() const;
+
+        wgpu::Surface GetWGPUSurface(wgpu::Instance instance) const;
 
     private:
         GLFWwindow* m_Handle;

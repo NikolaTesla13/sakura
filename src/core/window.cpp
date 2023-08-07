@@ -25,12 +25,16 @@ namespace sakura {
         glfwTerminate();
     }
 
-    void Window::PollEvents() {
+    void Window::PollEvents() const {
         glfwSwapBuffers(m_Handle);
         glfwPollEvents();
     }
 
-    bool Window::ShouldClose() {
+    bool Window::ShouldClose() const {
         return glfwWindowShouldClose(m_Handle);
+    }
+
+    wgpu::Surface Window::GetWGPUSurface(wgpu::Instance instance) const {
+        return glfwGetWGPUSurface(instance, m_Handle);
     }
 }

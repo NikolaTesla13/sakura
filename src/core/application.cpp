@@ -11,10 +11,12 @@ namespace sakura {
             .Width = desc.Width,
             .Height = desc.Height
         });
+
+        m_Context = new WGPUContext(*m_Window.get());
     }
 
     Application::~Application() {
-
+        delete m_Context;
     }
 
     void Application::PushLayer(Layer *layer) {
